@@ -5,17 +5,8 @@
 }
 
 html {
+  display: flex;
   block-size: 100%;
-}
-
-.page {
-  inline-size: 1200px;
-  block-size: 100%;
-  margin: auto;
-  color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 18px;
-  background-color: #1b1919;
 }
 
 h1,
@@ -37,6 +28,295 @@ ol {
   list-style: none;
 }
 
+.page {
+  display: flex;
+  inline-size: 1200px;
+  block-size: 100%;
+  margin: auto;
+  color: #fff;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  background-color: #1b1919;
+  justify-content: center;
+  align-items: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.content {
+  display: grid;
+  width: 1140px;
+  grid-template-columns: 711px 399px;
+  grid-template-rows: 534px;
+  grid-template-areas:
+  'result content__details';
+  align-items: end;
+  gap: 30px;
+}
+  /* Блок с видео */
+.result__video-container {
+  position: relative;
+  width: 711px;
+  height: 386px;
+  margin-bottom: 17px;
+}
+  /* Видео */
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+  /* Блок с карточками */
+.content__details {
+  width: 100%;
+  height: 100%;
+}
+  /* Заголовок блока с карточками */
+.title {
+  font-family: 'Oswald';
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 70.5px;
+  text-align: left;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+  /* Спан "По-" */
+.content__accent {
+  color: #545050;
+}
+  /* Блок поиска городов */
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+  /* Филдсеты */
+.search-form__fieldset {
+  border: none;
+}
+  /* Заголовок филдсетов */
+.search-form__fieldset-title {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.6px;
+  text-align: left;
+  margin-bottom: 6px;
+}
+  /* Блоки инпута и чекбокса */
+.search-form__label {
+  display: flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  gap: 5px;
+  width: fit-content;
+}
+  /* Обводка текстового поля */
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #FFFFFF;
+  outline-offset: 1px;
+}
+  /* Подчёркивание текста выбора времени суток*/
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+  /* Стилизация поля выбора города */
+.search-form__textfield {
+  min-width: 225px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+}
+.search-form__textfield:focus {
+  outline: none;
+}
+.search-form__textfield:hover {
+  cursor: text;
+}
+.search-form__textfield:active {
+  border: 1px solid #FFFFFF;
+}
+  /* Чекбоксы */
+.search-form__checkbox-list {
+  display: flex;
+  justify-content: space-between;
+  width: 212px;
+  gap: 15px;
+  margin-top: 5px;
+}
+  /* Псевдо чекбокс */
+.search-form__pseudo-checkbox {
+  display: flex;
+  position: relative;
+  border: 1px solid #FFFFFF;
+  width: 19px;
+  height: 19px;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+  /* Состояние чекед */
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  position: absolute;
+  content: '';
+  width: 15px;
+  height: 15px;
+  background: #FFFFFF;
+}
+  /* Кнопки */
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid #FFFFFF;
+  font-family: Fira Sans Condensed;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.6px;
+  color: #FFFFFF;
+  text-align: center;
+  cursor: pointer;
+}
+.button:focus {
+  outline: none;
+}
+  /* Обводка кнопки */
+.button:focus-visible {
+  outline: 1px solid #FFFFFF;
+  outline-offset: -3px;
+}
+  /* Подчёркивание текста кнопки */
+.button:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+  /* Фон активных кнопок */
+.button:active {
+  background-color: #545050;
+}
+  /* Кнопка "Найти" */
+.search-form__submit-button {
+  width: 194px;
+  height: 34px;
+  align-self: end;
+}
+  /* Блок всех карточек городов */
+.content__list-container {
+  position: relative;
+  height: 298px;
+  overflow: auto;
+  margin-top: 20px;
+}
+  /* Карточки */
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+  /* Отступы для корректного отображения обводки */
+.content__list-item {
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 2px;
+}
+  /* Добавление отступа последней карточке */
+.content__list:not(:last-child) {
+  margin-bottom: 30px;
+}
+  /* Ссылка карточки */
+.content__card-link {
+  display: block;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.content__card-link:focus {
+  outline: none;
+}
+  /* Обводка карточки */
+.content__card-link:focus-visible {
+  outline: 1px solid #FFFFFF;
+  outline-offset: 1px;
+}
+  /* Подчёркивание текста карточки */
+.content__card-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+  /* Активная карточка */
+.content__card-link:active {
+  display: block;
+  background-color: transparent;
+}
+  /* Фон активной карточки */
+.content__card-link_current {
+  background-color: #545050;
+}
+  /* Блок карточки */
+.content__video-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+  /* Блок описания карточки */
+.content__video-card-description-container {
+  width: 196px;
+  flex-grow: 1;
+}
+  /* Заголовок описания карточки */
+.content__video-card-title {
+  font-family: 'Oswald';
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+  /* Описание карточки */
+.content__video-card-description {
+  font-family: 'Fira Sans Condensed';
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 17.2px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+  /* Превью видео города */
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+  object-position: center;
+}
+  /* Кнопка "Показать ещё" */
+.more-button {
+  width: 390px;
+  height: 34px;
+}
 /* Кастомный скроллбар */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
